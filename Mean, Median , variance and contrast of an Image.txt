@@ -1,0 +1,85 @@
+# Below is the code of finding mean , median ,variance of an Image and also provide the code of image contrast .
+
+
+
+
+
+import cv2
+import numpy as np
+
+image12=cv2.imread('D:\Computer vision\CV LAB 2\img_1.png')
+r,b,g= cv2.split(image12)
+image_data=np.array(image12)
+mean_value=np.mean(image12)
+meanr=np.mean(r)
+meanb=np.mean(b)
+meang=np.mean(g)
+
+# Printing image data
+print(f"Data of Red color : {r}")
+print(f"Data of Green color : {g}")
+print(f"Data of Blue color : {b}")
+
+# Printing mean values
+print(f"Mean value of picture : {mean_value}")
+print(f"Mean value of Red color : {meanr}")
+print(f"Mean value of Green color : {meang}")
+print(f"Mean value of Blue color : {meanb}")
+
+
+# Calculate median
+median_value = np.median(image_data)
+
+# Calculate variance
+variance_value = np.var(image_data)
+
+# Calculate standard deviation
+stdev_value = np.std(image_data)
+
+
+
+
+
+img = cv2.imread('img.png',cv2.IMREAD_GRAYSCALE)
+
+Convert the grayscale image to binary mode
+img = cv2.imread('img.png',cv2.IMREAD_GRAYSCALE)
+
+# Displaying the image
+print(img)
+
+# Invert the image
+inverted_img = cv2.bitwise_not(img)
+
+invert_img=255-img
+cv2.imshow("Image", inverted_img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+
+
+
+
+
+
+
+# For contrast 
+# Import the required library
+import cv2
+
+# Read the input image
+image = cv2.imread('input_image.jpg')
+
+# Define the alpha and beta values for contrast and brightness adjustment
+alpha = 1.5  # To increase contrast, use a value greater than 1
+beta = 10  # To adjust brightness, use a positive or negative value
+
+# Apply the contrast and brightness adjustment
+adjusted_image = cv2.convertScaleAbs(image, alpha=alpha, beta=beta)
+
+# Display the original and adjusted images
+cv2.imshow('Original Image', image)
+cv2.imshow('Adjusted Image', adjusted_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
